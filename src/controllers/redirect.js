@@ -59,8 +59,9 @@ const redirect = async (req, res) => {
       const ArLinkInstagram = await selectFilter();
       res.redirect(302, ArLinkInstagram);
    } catch (error) {
-      console.log("erro", error);
-      res.status(500).send("Algo deu errado com o servidor!");
+      res.status(500).send({
+         message: "Algo deu errado com o servidor, tente novamente mais tarde",
+      });
    }
 };
 
